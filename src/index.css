@@ -1,25 +1,25 @@
 
 @font-face {
   font-family: "TiktTokFont";
-  src: url('assets/fonts/TikTokFont-Regular.woff2') format('.woff2');
+  src: url('/assets/fonts/TikTokFont-Regular.woff2') format('.woff2');
   font-size: 400;
 }
 
 @font-face {
   font-family: "TiktTokFont";
-  src: url('assets/fonts/TikTokFont-Semibold.woff2') format('.woff2');
+  src: url('/assets/fonts/TikTokFont-Semibold.woff2') format('.woff2');
   font-size: 600;
 }
 
 @font-face {
   font-family: "TiktTokFont";
-  src: url('assets/fonts/TikTokFont-Bold.woff2') format('.woff2');
+  src: url('/assets/fonts/TikTokFont-Bold.woff2') format('.woff2');
   font-size: 700;
 }
 
 @font-face {
   font-family: "TiktTokFont";
-  src: url('assets/fonts/TikTokDisplayFont-Bold.woff2') format('.woff2');
+  src: url('/assets/fonts/TikTokDisplayFont-Bold.woff2') format('.woff2');
   font-size: 800;
 }
 
@@ -27,8 +27,18 @@
 body {
   margin: 0;
   font-family: "TikTokFont", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
+}
 
+html {
+  box-sizing: border-box; /* ancho/alto incluyen contenido + padding + border (más fácil de controlar) */
+  margin:0;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit; /* todos los elementos y sus pseudoelementos usan border-box */
 }
 
 
