@@ -4,9 +4,9 @@
 }
 
 .wrapper {
-
     position: relative;
 }
+
 .player {
     width: 62px;
     height: 62px;
@@ -19,4 +19,24 @@
     margin:auto;
     background-color: transparent;
     border:0;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.actions {
+    position: absolute;
+    bottom: 16px;
+    right: 0;
+}
+
+.action {
+    color: #fff;
+    background: transparent;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

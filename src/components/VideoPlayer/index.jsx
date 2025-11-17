@@ -1,9 +1,9 @@
-
+import clsx from "clsx";
 import styles from "./styles.module.css";
 import { useRef, useState } from "react";
+import VideoPlayerActions from "./VideoPlayerActions";
 
-export default function VideoPlayer() {
-  const SRC = "/assets/videos/video1.mp4"
+export default function VideoPlayer({ src }) {
 
     //El video lo guardamos en una referencia de React con useRef()
     const video = useRef(null)
@@ -11,30 +11,32 @@ export default function VideoPlayer() {
 
   //Funcion para pausar y arrancar el video
   const handlePlay = () => {
-    if(isPlaying){
-        video.current.pause() 
-    } else {
-        video.current.play()
-    }
+    const {current: videoElement } = video 
+
+    isPlaying ? videoElement.pause() : videoElement.play() 
 
     setIsPlaying(!isPlaying) //Actualizamos el estado
 
-
   }
-  return (
-    <div>
-        <video 
-            className={styles.video}
-            src={SRC} 
-            controls={false}
-            ref={video}
-            
 
-         />;
-         <button 
-            onClick={handlePlay}
-            className={styles.player}>
-         </button>
+  const playerClassName = clsx(styles.player, {
+        [styles.hidden]: isPlaying,
+    })
+
+
+  return (
+    <div className={styles.wrapper}>
+      <video
+        className={styles.video}
+        src={src}
+        loop
+        controls={false}
+        ref={video}
+        onClick={handlePlay}
+      />
+      ;
+      <i className={playerClassName} onClick={handlePlay}/>
+      <VideoPlayerActions />
     </div>
-  )
+  );
 }
